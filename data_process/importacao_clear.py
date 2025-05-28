@@ -23,7 +23,11 @@ def carregar_dados(caminho_csv: Path, produto_nome: str) -> pd.DataFrame:
         print(f"⚠️ Arquivo {caminho_csv.name} não possui colunas suficientes.")
         return pd.DataFrame()
 
-    df.rename(columns={df.columns[0]: "pais_id", df.columns[1]: "pais"}, inplace=True)
+    df.rename(columns={
+        df.columns[0]: "pais_id",
+        df.columns[1]: "pais"
+    }, inplace=True)
+
     df = df.drop(columns=["ano", "valor"], errors="ignore")
 
     col_ano = [col for col in df.columns if col[:4].isdigit()]
