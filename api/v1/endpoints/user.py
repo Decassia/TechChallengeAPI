@@ -23,13 +23,9 @@ router = APIRouter()
 def get_logado(current_user: UserModel = Depends(get_current_user)):
     return current_user
 
-# POST/ Signup
-
-
-
-
+# POST/ Signup - Create USer
 @router.post("/signup", status_code=status.HTTP_201_CREATED, response_model=UserSchema)
-async def post_user(user: UserSchemaCreate, db: AsyncSession = Depends(get_session)):
+async def post_create_user(user: UserSchemaCreate, db: AsyncSession = Depends(get_session)):
     new_user: UserModel = UserModel(
         name=user.name,
         surname=user.surname,

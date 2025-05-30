@@ -1,8 +1,7 @@
-import api
+
 from fastapi import APIRouter
 
-from api.v1.endpoints import user
-from api.v1.endpoints import producao, processamento, comercializacao, importacao, exportacao
+from api.v1.endpoints import user, producao, processamento, comercializacao, importacao, exportacao
 
 api_router = APIRouter()
 

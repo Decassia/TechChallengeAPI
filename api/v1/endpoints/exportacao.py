@@ -1,6 +1,6 @@
-from typing import List, Optional
+from typing import List, Optional, Dict
 
-from fastapi import APIRouter, status, Depends, HTTPException, Response
+from fastapi import APIRouter, status, Depends, HTTPException, Response, Query
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
@@ -26,8 +26,8 @@ async def get_exportacao(db: AsyncSession = Depends(get_session)):
 
 
 
-@router.get('/filtro_ano', response_model=List[ExportacaoSchema], status_code=status.HTTP_200_OK)
-async def filtrar_ano(
+@router.get('/get_export_ano_min_max', response_model=List[ExportacaoSchema], status_code=status.HTTP_200_OK)
+async def get_export_ano_min_max(
         ano_min: Optional[int] = None,
         ano_max: Optional[int] = None,
         db: AsyncSession = Depends(get_session),
@@ -48,3 +48,14 @@ async def filtrar_ano(
             return exportacao
         else:
             raise HTTPException(status_code=404, detail="Nenhum dado encontrado no intervalo especificado.")
+
+
+@router.get('/get_export_by_ano', response_model=Dict[str, List[ExportacaoSchema]], status_code=status.HTTP_200_OK)
+async def get_export_by_ano(
+    ano: int = Query(1970),
+    db: AsyncSession = Depends(get_session)):
+    async with db as session:
+        query = select(ExportacaoModel).where(ExportacaoModel.ano == ano)
+        result = await session.execute(query)
+        exportacao = result.scalars().all()
+        return {f"Dados de Exportação - {ano}": exportacao}

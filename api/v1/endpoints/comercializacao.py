@@ -1,6 +1,6 @@
-from typing import List, Optional
+from typing import List, Optional, Dict
 
-from fastapi import APIRouter, status, Depends, HTTPException, Response
+from fastapi import APIRouter, status, Depends, HTTPException, Response, Query
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
@@ -25,8 +25,8 @@ async def get_comercializacao(db: AsyncSession = Depends(get_session)):
         return comercializacao
 
 
-@router.get('/filtro_ano', response_model=List[ComercializacaoSchema], status_code=status.HTTP_200_OK)
-async def filtrar_ano(
+@router.get('/get_comerc_ano_min_max', response_model=List[ComercializacaoSchema], status_code=status.HTTP_200_OK)
+async def get_comerc_ano_min_max(
         ano_min: Optional[int] = None,
         ano_max: Optional[int] = None,
         db: AsyncSession = Depends(get_session),
@@ -50,4 +50,12 @@ async def filtrar_ano(
 
 
 
-
+@router.get('/get_comercializacao_by_ano', response_model=Dict[str, List[ComercializacaoSchema]], status_code=status.HTTP_200_OK)
+async def get_comeercializacao_by_ano(
+    ano: int = Query(1970),
+    db: AsyncSession = Depends(get_session)):
+    async with db as session:
+        query = select(ComercializacaooModel).where(ComercializacaooModel.ano == ano)
+        result = await session.execute(query)
+        comerc = result.scalars().all()
+        return {f"Dados de Comercialização - {ano}": comerc}
