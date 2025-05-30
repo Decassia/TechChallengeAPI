@@ -14,7 +14,7 @@ sync_engine = create_engine(settings.DB_URL.replace("+asyncpg", ""))
 
 def limpar_data_frame(path_csv:str):
     try:
-        df = pd.read_csv(path_csv, sep=";", encoding="latin1")
+        df = pd.read_csv(path_csv, sep=";", encoding="utf-8")
         #Busca as colunas de ano no dataframe
         colunas_ano = [col for col in df.columns if  col.isnumeric()]
         df_data_melt = df.melt(
