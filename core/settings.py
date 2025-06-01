@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     DB_URL: str = "postgresql+asyncpg://admin:mTeHvN2zSYQWgmqlNsCOuSoxKqtYzAGL@dpg-d0ua86idbo4c73ap46q0-a.oregon-postgres.render.com/db_techchalenge"
     JWT_SECRET_KEY: str = 'P7CpvrzKq7FH3xO5wtnNxJ84q2wGL28hNSS1pep2wrk'
     ALGORITHM: str = "HS256"
-    #ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 1 semana
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 1 semana
 
     class Config:
         case_sensitive = True
