@@ -51,12 +51,17 @@ async def get_import_ano_min_max(
 
 
 
-@router.get('/get_import_by_ano', response_model=Dict[str, List[ImportacaoModel]], status_code=status.HTTP_200_OK)
-async def get_import_by_ano(
+
+@router.get('/get_importacao_by_ano',response_model=List[ImportacaoSchema],status_code=status.HTTP_200_OK)
+async def get_importacao_by_ano(
     ano: int = Query(1970),
-    db: AsyncSession = Depends(get_session)):
+    db: AsyncSession = Depends(get_session),
+        current_user: UserModel = Depends(get_current_user)
+):
     async with db as session:
         query = select(ImportacaoModel).where(ImportacaoModel.ano == ano)
         result = await session.execute(query)
         importacao = result.scalars().all()
-        return {f"Dados de Importação - {ano}": importacao}
+
+        # Conversão para schema Pydantic
+        return [ImportacaoSchema.model_validate(c) for c in importacao]

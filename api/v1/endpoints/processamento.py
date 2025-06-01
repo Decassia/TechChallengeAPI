@@ -16,7 +16,7 @@ router = APIRouter()
 
 # GET Produtos
 @router.get('/', response_model=List[ProcessamentoSchema])
-async def get_processamento(db: AsyncSession = Depends(get_session)):
+async def get_processamento(db: AsyncSession = Depends(get_session), current_user: UserModel = Depends(get_current_user)):
     async with db as session:
         query = select(ProcessamentoModel)
         result = await session.execute(query)
@@ -29,6 +29,7 @@ async def get_processamento_ano_min_max(
         ano_min: Optional[int] = None,
             ano_max: Optional[int] = None,
             db: AsyncSession = Depends(get_session),
+            current_user: UserModel = Depends(get_current_user)
 
     ):
         async with db as session:
@@ -50,12 +51,16 @@ async def get_processamento_ano_min_max(
 
 
 
-@router.get('/get_processamento_by_ano', response_model=Dict[str, List[ProcessamentoSchema]], status_code=status.HTTP_200_OK)
+@router.get('/get_processamento_by_ano',response_model=List[ProcessamentoSchema],status_code=status.HTTP_200_OK)
 async def get_processamento_by_ano(
     ano: int = Query(1970),
-    db: AsyncSession = Depends(get_session)):
+    db: AsyncSession = Depends(get_session),
+        current_user: UserModel = Depends(get_current_user)
+):
     async with db as session:
         query = select(ProcessamentoModel).where(ProcessamentoModel.ano == ano)
         result = await session.execute(query)
-        proc = result.scalars().all()
-        return {f"Dados de Processamento - {ano}": proc}
+        processamento = result.scalars().all()
+
+        # Conversão para schema Pydantic
+        return [ProcessamentoSchema.model_validate(c) for c in processamento]

@@ -16,7 +16,7 @@ router = APIRouter()
 
 # GET Produtos
 @router.get('/', response_model=List[ExportacaoSchema])
-async def get_exportacao(db: AsyncSession = Depends(get_session)):
+async def get_exportacao(db: AsyncSession = Depends(get_session), current_user: UserModel = Depends(get_current_user)):
     async with db as session:
         query = select(ExportacaoModel)
         result = await session.execute(query)
@@ -31,6 +31,7 @@ async def get_export_ano_min_max(
         ano_min: Optional[int] = None,
         ano_max: Optional[int] = None,
         db: AsyncSession = Depends(get_session),
+        current_user: UserModel = Depends(get_current_user)
 
 ):
     async with db as session:
@@ -50,12 +51,20 @@ async def get_export_ano_min_max(
             raise HTTPException(status_code=404, detail="Nenhum dado encontrado no intervalo especificado.")
 
 
-@router.get('/get_export_by_ano', response_model=Dict[str, List[ExportacaoSchema]], status_code=status.HTTP_200_OK)
-async def get_export_by_ano(
+
+
+
+@router.get('/get_exportacao_by_ano',response_model=List[ExportacaoSchema],status_code=status.HTTP_200_OK)
+async def get_exportacao_by_ano(
     ano: int = Query(1970),
-    db: AsyncSession = Depends(get_session)):
+    db: AsyncSession = Depends(get_session),
+    current_user: UserModel = Depends(get_current_user)
+
+):
     async with db as session:
         query = select(ExportacaoModel).where(ExportacaoModel.ano == ano)
         result = await session.execute(query)
         exportacao = result.scalars().all()
-        return {f"Dados de Exportação - {ano}": exportacao}
+
+        # Conversão para schema Pydantic
+        return [ExportacaoSchema.model_validate(c) for c in exportacao]

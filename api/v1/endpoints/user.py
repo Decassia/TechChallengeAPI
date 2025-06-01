@@ -45,7 +45,7 @@ async def post_create_user(user: UserSchemaCreate, db: AsyncSession = Depends(ge
             )
 #Get Users
 @router.get("/", response_model=List[UserSchema])
-async def get_users_all(session: AsyncSession = Depends(get_session)):
+async def get_users_all(session: AsyncSession = Depends(get_session), current_user: UserModel = Depends(get_current_user)):
     result = await session.execute(select(UserModel))
     users = result.unique().scalars().all()  # <- .unique() evita erro com JOINs
     return [UserSchema.model_validate(user) for user in users]
@@ -54,7 +54,9 @@ async def get_users_all(session: AsyncSession = Depends(get_session)):
 # GET User
 #@router.get('/{user_id}', response_model=UserSchema, status_code=status.HTTP_200_OK)
 @router.get('/by-id/{user_id}', response_model=UserSchema, status_code=status.HTTP_200_OK)
-async def get_user(user_id: int, db: AsyncSession = Depends(get_session)):
+async def get_user(user_id: int,
+                   db: AsyncSession = Depends(get_session),
+                   current_user: UserModel = Depends(get_current_user)):
     async with db as session:
         query = select(UserModel).filter(UserModel.id == user_id)
         result = await session.execute(query)
@@ -70,7 +72,10 @@ async def get_user(user_id: int, db: AsyncSession = Depends(get_session)):
 
 # PUT Usuario
 @router.put('/{user_id}', response_model=UserSchema, status_code=status.HTTP_202_ACCEPTED)
-async def update_user(user_id: int, user: UserSchemaUp, db: AsyncSession = Depends(get_session)):
+async def update_user(user_id: int,
+                      user: UserSchemaUp, db: AsyncSession = Depends(get_session),
+                      current_user: UserModel = Depends(get_current_user)
+                      ):
     print(user.model_dump())
     async with db as session:
         query = select(UserModel).filter(UserModel.id == user_id)
@@ -104,7 +109,10 @@ async def update_user(user_id: int, user: UserSchemaUp, db: AsyncSession = Depen
 # Delete Usuario
 
 @router.delete('/{user_id}', status_code=status.HTTP_204_NO_CONTENT)
-async def get_user_del(user_id: int, db: AsyncSession = Depends(get_session)):
+async def get_user_del(user_id: int,
+                       db: AsyncSession = Depends(get_session),
+                       current_user: UserModel = Depends(get_current_user)
+                       ):
     async with db as session:
         query = select(UserModel).where(UserModel.id == user_id)
         result = await session.execute(query)

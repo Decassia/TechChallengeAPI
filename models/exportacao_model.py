@@ -15,3 +15,5 @@ class ExportacaoModel(DBBaseModel):
         PrimaryKeyConstraint("pais", "ano", "produto", name="pk_exportacao_pais_ano_produto"),
     )
 
+
+

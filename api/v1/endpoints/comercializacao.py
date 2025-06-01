@@ -16,7 +16,7 @@ router = APIRouter()
 
 # GET Produtos
 @router.get('/', response_model=List[ComercializacaoSchema])
-async def get_comercializacao(db: AsyncSession = Depends(get_session)):
+async def get_comercializacao(db: AsyncSession = Depends(get_session), current_user: UserModel = Depends(get_current_user)):
     async with db as session:
         query = select(ComercializacaooModel)
         result = await session.execute(query)
@@ -30,6 +30,7 @@ async def get_comerc_ano_min_max(
         ano_min: Optional[int] = None,
         ano_max: Optional[int] = None,
         db: AsyncSession = Depends(get_session),
+        current_user: UserModel = Depends(get_current_user)
 
 ):
     async with db as session:
@@ -50,12 +51,21 @@ async def get_comerc_ano_min_max(
 
 
 
-@router.get('/get_comercializacao_by_ano', response_model=Dict[str, List[ComercializacaoSchema]], status_code=status.HTTP_200_OK)
-async def get_comeercializacao_by_ano(
+from typing import List
+from schemas.comercializacao_schema import ComercializacaoSchema
+
+@router.get(
+    '/get_comercializacao_by_ano',response_model=List[ComercializacaoSchema],status_code=status.HTTP_200_OK)
+async def get_comercializacao_by_ano(
     ano: int = Query(1970),
-    db: AsyncSession = Depends(get_session)):
+    db: AsyncSession = Depends(get_session),
+        current_user: UserModel = Depends(get_current_user)
+):
     async with db as session:
         query = select(ComercializacaooModel).where(ComercializacaooModel.ano == ano)
         result = await session.execute(query)
         comerc = result.scalars().all()
-        return {f"Dados de Comercialização - {ano}": comerc}
+
+        # Conversão para schema Pydantic
+        return [ComercializacaoSchema.model_validate(c) for c in comerc]
+

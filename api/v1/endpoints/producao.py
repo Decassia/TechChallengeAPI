@@ -53,12 +53,16 @@ async def get_prod_ano_min_max(
 
 
 
-@router.get('/get_producao_by_ano', response_model=Dict[str, List[ProducaoSchema]], status_code=status.HTTP_200_OK)
+@router.get('/get_producao_by_ano',response_model=List[ProducaoSchema],status_code=status.HTTP_200_OK)
 async def get_producao_by_ano(
     ano: int = Query(1970),
-    db: AsyncSession = Depends(get_session)):
+    db: AsyncSession = Depends(get_session),
+        current_user: UserModel = Depends(get_current_user)
+):
     async with db as session:
         query = select(ProducaoModel).where(ProducaoModel.ano == ano)
         result = await session.execute(query)
-        prod = result.scalars().all()
-        return {f"Dados de Producao - {ano}": prod}
+        producao = result.scalars().all()
+
+        # Conversão para schema Pydantic
+        return [ProducaoSchema.model_validate(c) for c in producao]
