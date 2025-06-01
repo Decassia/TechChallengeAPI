@@ -21,7 +21,7 @@ app.add_middleware(
 
 
 
-app = FastAPI(title='API - Tech Challenge_01 - Viticultura')
+app = FastAPI(title='API - Tech Challenge_01 - Dados Viticultura')
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
 
