@@ -7,12 +7,12 @@ from api.v1 import api
 from api.v1.api import api_router
 from core.settings import settings
 
-app = FastAPI()
+app = FastAPI(title='API - Tech Challenge_01 - Dados Viticultura')
 
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ou coloque domínios específicos
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -20,8 +20,6 @@ app.add_middleware(
 
 
 
-
-app = FastAPI(title='API - Tech Challenge_01 - Dados Viticultura')
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
 
