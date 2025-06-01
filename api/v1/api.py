@@ -3,16 +3,6 @@ from fastapi import APIRouter
 
 from api.v1.endpoints import user, producao, processamento, comercializacao, importacao, exportacao
 
-from fastapi.middleware.cors import CORSMiddleware
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 api_router = APIRouter()
 
