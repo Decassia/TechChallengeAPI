@@ -175,22 +175,7 @@ A EDA teve como objetivos principais:
 
 <img width="1621" alt="image" src="https://github.com/user-attachments/assets/a7f1e7ef-bd91-4c06-9b7d-a7372acc4b34" />
 
-Essas análises permitiram decisões fundamentadas sobre:
-- Quais colunas manter e transformar
-- Como estruturar os filtros no frontend
-- E como garantir consistência dos dados entre os diferentes endpoints da API
-
-## 📈 Análise Exploratória de Dados (EDA)
-
-Antes da construção dos dashboards interativos e da preparação para Machine Learning, foi realizada uma **análise exploratória de dados (EDA)** com o objetivo de:
-
-- Identificar padrões temporais (sazonalidade, tendências por ano);
-- Verificar a distribuição dos dados por país e produto;
-- Detectar dados faltantes, valores nulos ou inconsistentes;
-- Avaliar correlações entre quantidade e valor por produto ou origem;
-- Facilitar a definição de filtros úteis para visualização e modelagem futura.
-
-### Exemplo de gráfico gerado durante a EDA:
+---
 
 <img width="1621" alt="image" src="https://github.com/user-attachments/assets/c059e397-bf89-4c44-a365-efeac74e60f6" />
 
