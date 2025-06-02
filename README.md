@@ -103,7 +103,7 @@ VineEmprabaAPI/
 │   ├── producao_clear.py
 │   ├── web_scraping.py
 │   ├── load_all.py
-│   └── teste_scraping/
+│   └── data_scraping/
 │
 ├── schemas/
 │   ├── comercializacao_schema.py
