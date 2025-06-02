@@ -6,7 +6,7 @@ from api.v1.endpoints import user, producao, processamento, comercializacao, imp
 
 api_router = APIRouter()
 
-@app_router.get("/")
+@api_router.get("/")
 async def def_root():
     return {"mensagem": "Bem Vindo"}
    
