@@ -7,7 +7,7 @@ from api.v1 import api
 from api.v1.api import api_router
 from core.settings import settings
 
-app = FastAPI(title='API - Tech Challenge_01 - Dados Viticultura')
+app = FastAPI(title='API - Tech Challenge_01 - Dados Vitivinicultura')
 
 
 app.add_middleware(
