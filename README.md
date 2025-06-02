@@ -1,6 +1,6 @@
-Tech Challenge FASE 01 - API: Vitivinicultura da Embrapa - Curso Pós Tech - Machine Learning Engineering
+# Tech Challenge FASE 01 - API: Vitivinicultura da Embrapa - Curso Pós Tech - Machine Learning Engineering
 
-Problema de negócio
+# 📂 Problema de negócio
 
 Você foi contratado para uma consultoria e seu trabalho envolve analisar os dados de vitivinicultura da Embrapa. A ideia do projeto é a criação de uma API pública de consulta nos dados do site nas respectivas abas:
   - Produção;
@@ -20,7 +20,7 @@ Criar uma Rest API em Python que faça a consulta no site da Embrapa.
   -  Fazer um MVP realizando o deploy com um link compartilhável e um repositório no github.
 
 
-# 📡 API de Dados da Vitivinicultura Brasileira
+# 📡 API de Dados da Vitivinicultura Embrapa
 
 Este projeto tem como objetivo criar uma **API pública RESTful**, com autenticação via JWT, que realiza a extração, tratamento e disponibilização de dados da vitivinicultura brasileira. A API está pronta para alimentar modelos de Machine Learning, com dados estruturados e limpos, extraídos diretamente do site da Embrapa (Vitibrasil).
 
@@ -30,7 +30,8 @@ Este projeto tem como objetivo criar uma **API pública RESTful**, com autentica
 
 A seguir, apresentamos a arquitetura completa do sistema desenvolvido:
 
-![Arquitetura do Projeto](./2a6086eb-49b9-49bc-8463-0672d3a49926.png)
+[Arquitetura do Projeto] <img width="1223" alt="image" src="https://github.com/user-attachments/assets/8a22867c-a3e3-4388-b013-af7bee1a8a31" />
+
 
 ### 🔄 Etapas da Arquitetura:
 
