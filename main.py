@@ -8,6 +8,7 @@ from api.v1.api import api_router
 from core.settings import settings
 
 app = FastAPI(title='API - Tech Challenge_01 - Dados Vitivinicultura')
+app.include_router(api_router, prefix="/api/v1")
 
 
 app.add_middleware(
