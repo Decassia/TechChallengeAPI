@@ -141,6 +141,157 @@ A estrutura foi pensada para garantir:
 
 ---
 
-  
+
+## 📊 Interface de Visualização
+
+O projeto conta com um **frontend desenvolvido em Streamlit**, que permite:
+
+- Login autenticado com token JWT
+- Escolha da categoria (Produção, Importação, etc.)
+- Filtros por ano, produto ou país
+- Visualização por:
+  - Tabela interativa
+  - Gráficos de barras, linhas, top 5 e comparações
+- Exportação dos dados filtrados em CSV, Excel ou JSON
+
+### Exemplo da interface:
+
+![Dashboard de Importação](<img width="1621" alt="image" src="https://github.com/user-attachments/assets/dd02279f-1adb-4146-9227-ceef4f411b4e" />
+)
+
+## 📈 Análise Exploratória dos Dados (EDA)
+
+Antes de alimentar os dashboards e modelos de machine learning, foi realizada uma **Análise Exploratória de Dados (EDA)**, utilizando bibliotecas como `pandas`, `matplotlib` e `plotly`.
+
+A EDA teve como objetivos principais:
+
+- Verificar **distribuições temporais** (ex: volume de importação por ano)
+- Identificar **outliers** e possíveis inconsistências
+- Analisar **tendências por tipo de produto e país**
+- Medir **ausência de dados** (valores nulos) e corrigir colunas incompletas
+- Preparar os dados com agregações e filtros otimizados para os dashboards
+
+### Exemplo de visualização da EDA:
+
+![Gráfico de Importação - Quantidade por Ano](<img width="1621" alt="image" src="https://github.com/user-attachments/assets/a7f1e7ef-bd91-4c06-9b7d-a7372acc4b34" />)
+
+Essas análises permitiram decisões fundamentadas sobre:
+- Quais colunas manter e transformar
+- Como estruturar os filtros no frontend
+- E como garantir consistência dos dados entre os diferentes endpoints da API
+
+## 📈 Análise Exploratória de Dados (EDA)
+
+Antes da construção dos dashboards interativos e da preparação para Machine Learning, foi realizada uma **análise exploratória de dados (EDA)** com o objetivo de:
+
+- Identificar padrões temporais (sazonalidade, tendências por ano);
+- Verificar a distribuição dos dados por país e produto;
+- Detectar dados faltantes, valores nulos ou inconsistentes;
+- Avaliar correlações entre quantidade e valor por produto ou origem;
+- Facilitar a definição de filtros úteis para visualização e modelagem futura.
+
+### Exemplo de gráfico gerado durante a EDA:
+
+![Gráfico EDA - Importação](<img width="1621" alt="image" src="https://github.com/user-attachments/assets/c059e397-bf89-4c44-a365-efeac74e60f6" />)
 
 
+Esses insights orientaram:
+- A escolha de filtros por **ano**, **produto** e **país**;
+- A separação das abas no dashboard;
+- A modelagem dos dados para futura análise preditiva e agrupamentos.
+
+---
+
+## 🧭 Endpoints Disponíveis
+
+A API oferece múltiplos endpoints organizados por módulos, todos protegidos por autenticação JWT:
+
+### 🔐 Autenticação & Usuários (`/api/v1/users`)
+| Método | Rota             | Descrição                    |
+|--------|------------------|-------------------------------|
+| POST   | `/login`         | Login do usuário              |
+| POST   | `/signup`        | Criação de novo usuário       |
+| GET    | `/`              | Lista todos os usuários       |
+| GET    | `/by-id/{user_id}` | Busca usuário por ID        |
+| GET    | `/logado`        | Retorna usuário logado        |
+| PUT    | `/{user_id}`     | Atualiza dados do usuário     |
+| DELETE | `/{user_id}`     | Deleta usuário                |
+
+### 🍇 Produção (`/api/v1/producoes`)
+| Método | Rota                        | Descrição                   |
+|--------|-----------------------------|------------------------------|
+| GET    | `/`                         | Retorna todos os dados       |
+| GET    | `/get_prod_ano_min_max`     | Retorna o menor e maior ano  |
+| GET    | `/get_producao_by_ano`      | Produção agrupada por ano    |
+
+### 🏭 Processamento (`/api/v1/processamentos`)
+| Método | Rota                                | Descrição                   |
+|--------|-------------------------------------|------------------------------|
+| GET    | `/`                                 | Retorna todos os dados       |
+| GET    | `/get_processamento_ano_min_max`    | Retorna o menor e maior ano  |
+
+ℹ️ **Rotas de importação, exportação e comercialização seguem estrutura semelhante.**
+
+### 🔑 Segurança
+- Todas as rotas (exceto login e signup) exigem **autenticação via JWT Bearer Token**.
+- Use o botão `"Authorize"` na documentação Swagger para testar os endpoints autenticados.
+
+---
+
+### 📦 Importação (`/api/v1/importacoes`)
+| Método | Rota                        | Descrição                       |
+|--------|-----------------------------|----------------------------------|
+| GET    | `/`                         | Lista todos os dados de importação |
+| GET    | `/get_importacao_ano_min_max` | Ano mínimo e máximo disponível   |
+| GET    | `/get_importacao_by_ano`     | Importação agrupada por ano      |
+
+### 🚢 Exportação (`/api/v1/exportacoes`)
+| Método | Rota                        | Descrição                       |
+|--------|-----------------------------|----------------------------------|
+| GET    | `/`                         | Lista todos os dados de exportação |
+| GET    | `/get_exportacao_ano_min_max` | Ano mínimo e máximo disponível   |
+| GET    | `/get_exportacao_by_ano`     | Exportação agrupada por ano      |
+
+### 🛒 Comercialização (`/api/v1/comercializacoes`)
+| Método | Rota                              | Descrição                          |
+|--------|-----------------------------------|-------------------------------------|
+| GET    | `/`                               | Lista todos os dados de comercialização |
+| GET    | `/get_comercializacao_ano_min_max`| Ano mínimo e máximo disponível       |
+| GET    | `/get_comercializacao_by_ano`     | Comercialização agrupada por ano     |
+
+---
+
+## 🧪 Como testar a API
+
+### 📘 Swagger UI
+Acesse a [documentação interativa Swagger](https://techchallengeapi.onrender.com/docs) para testar cada rota diretamente no navegador.  
+Use o botão **"Authorize"** para inserir o token JWT.
+
+### 🧰 Exemplo de Login (via `curl`)
+```bash
+curl -X POST http://localhost:8000/api/v1/users/login \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "username=usuario@email.com&password=suasenha"
+```
+
+### 📤 Exemplo de resposta com token JWT
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI...",
+  "token_type": "bearer"
+}
+```
+
+### 🔐 Como usar o token
+Copie o `access_token` retornado e inclua no cabeçalho das requisições autenticadas:
+
+```http
+Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
+```
+
+### 🧪 Testando com Postman
+1. Importe o link `/openapi.json` no Postman.
+2. Configure o token em **Authorization > Bearer Token**.
+3. Teste as rotas protegidas como `GET /producoes`.
+
+---
