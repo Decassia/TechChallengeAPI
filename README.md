@@ -39,7 +39,7 @@ A seguir, apresentamos a arquitetura completa do sistema desenvolvido:
 
 1. **Extração de Dados – Web Scraping**  
    - Utiliza **Selenium** e **BeautifulSoup** para extrair dados de páginas HTML com conteúdo dinâmico.
-   - Devido a instabilidade do site da viniviticultura, o Script Python acessa os dados das abas de Produção, Processamento, Comercialização, Importação e Exportação e faz o download dos arquivos CSV para que estes possam ser tratados e limpos antes de fazer a persistencia no banco de dados. 
+   - Devido à instabilidade do site da Vitivinicultura, o script em Python foi desenvolvido para acessar diretamente as abas de Produção, Processamento, Comercialização, Importação e Exportação, realizando o download dos arquivos CSV. Esses arquivos são então tratados e limpos antes de serem persistidos no banco de dados, garantindo a integridade e a padronização dos dados. 
 
 2. **Limpeza e Processamento – Pandas**  
    - Os dados brutos são transformados com `pandas`, eliminando ruídos como rodapés, cabeçalhos duplicados, e valores nulos.
