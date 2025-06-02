@@ -1,4 +1,5 @@
-# Tech Challenge FASE 01 - API: Vitivinicultura da Embrapa - Curso Pós Tech - Machine Learning Engineering
+# Tech Challenge FASE 01 - API: Vitivinicultura da Embrapa 
+FIAP - Curso Pós Tech - Machine Learning Engineering
 
 # 📂 Problema de negócio
 
@@ -286,9 +287,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
 ---
 ## 👥 Grupo
 
-Este projeto foi desenvolvido em equipe para o Tech Challenge.
+Este projeto foi desenvolvido em equipe para este corrente Tech Challenge.
 
 **Integrantes:**
 - Joanna de Cássia Valadares - github: https://github.com/Decassia
-- Matheus Pereira - github: https://github.com/Matheuszovisk25
+- Matheus Pereira de Jesus - github: https://github.com/Matheuszovisk25
 
