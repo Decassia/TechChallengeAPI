@@ -39,7 +39,7 @@ A seguir, apresentamos a arquitetura completa do sistema desenvolvido:
 
 1. **Extração de Dados – Web Scraping**  
    - Utiliza **Selenium** e **BeautifulSoup** para extrair dados de páginas HTML com conteúdo dinâmico.
-   - Devido a instabilidade do site da viniviticultura, o Script Python acessa os dados as abas de Produção, Processamento, Comercialização, Importação e Exportação e faz o download dos arquivos CSV para que estes possam ser tratados e limpos antes de fazer a persistencia no banco de dados. 
+   - Devido a instabilidade do site da viniviticultura, o Script Python acessa os dados das abas de Produção, Processamento, Comercialização, Importação e Exportação e faz o download dos arquivos CSV para que estes possam ser tratados e limpos antes de fazer a persistencia no banco de dados. 
 
 2. **Limpeza e Processamento – Pandas**  
    - Os dados brutos são transformados com `pandas`, eliminando ruídos como rodapés, cabeçalhos duplicados, e valores nulos.
@@ -128,7 +128,7 @@ VineEmprabaAPI/
 - **process_data/**: Scripts responsáveis por limpar, transformar e carregar os dados.
 - **data_scraping/**: Pasta que armazenda os dados que foram extraídos via selenium e beatifulsoap .
 - **main.py**: Ponto de entrada da aplicação FastAPI.
-- **create_table.py**: Script resposável pela criaçao e persitencia das tabelas no banco de dados.
+- **create_table.py**: Script resposável pela criação e persistência das tabelas no banco de dados.
 - **requirements.txt**: Lista de dependências do projeto.
   
 ---
