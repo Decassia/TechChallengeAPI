@@ -192,7 +192,7 @@ Antes da construção dos dashboards interativos e da preparação para Machine 
 
 ### Exemplo de gráfico gerado durante a EDA:
 
-![Gráfico EDA - Importação](<img width="1621" alt="image" src="https://github.com/user-attachments/assets/c059e397-bf89-4c44-a365-efeac74e60f6" />)
+<img width="1621" alt="image" src="https://github.com/user-attachments/assets/c059e397-bf89-4c44-a365-efeac74e60f6" />)
 
 
 Esses insights orientaram:
@@ -269,7 +269,7 @@ Use o botão **"Authorize"** para inserir o token JWT.
 
 ### 🧰 Exemplo de Login (via `curl`)
 ```bash
-curl -X POST http://localhost:8000/api/v1/users/login \
+curl -X POST https://techchallengeapi.onrender.com/api/v1/users/login \
      -H "Content-Type: application/x-www-form-urlencoded" \
      -d "username=usuario@email.com&password=suasenha"
 ```
