@@ -288,7 +288,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
 ---
 ## 👥 Grupo
 
-Este projeto foi desenvolvido em equipe para este corrente Projeto de Tech Challenge do Curso Pós Tech - Machine Learning Engineering - FIAP
+Este projeto foi desenvolvido em equipe para este corrente Tech Challenge do Curso Pós Tech - Machine Learning Engineering - FIAP
 
 **Integrantes:**
 - Joanna de Cássia Valadares - github: https://github.com/Decassia
