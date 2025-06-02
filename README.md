@@ -284,3 +284,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
 3. Teste as rotas protegidas como `GET /producoes`.
 
 ---
+## 👥 Grupo
+
+Este projeto foi desenvolvido em equipe para o Tech Challenge.
+
+**Integrantes:**
+- Joanna de Cássia Valadares - github: https://github.com/Decassia
+- Matheus Pereira - github: https://github.com/Matheuszovisk25
+
