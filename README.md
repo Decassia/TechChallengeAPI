@@ -58,6 +58,76 @@ A seguir, apresentamos a arquitetura completa do sistema desenvolvido:
    - O backend (API) é hospedado na **Render**.
    - O frontend é construído com **Streamlit**, fornecendo visualização interativa dos dados (gráficos, filtros, login, etc).
 
+
+## 📁 Estrutura do Projeto
+
+A estrutura do projeto foi organizada para garantir **modularidade**, **clareza** e **escalabilidade**:
+
+```
+VineEmprabaAPI/
+│
+├── api/
+│   └── v1/
+│       ├── endpoints/
+│       │   ├── comercializacao.py
+│       │   ├── exportacao.py
+│       │   ├── importacao.py
+│       │   ├── processamento.py
+│       │   ├── producao.py
+│       │   └── user.py
+│       └── api.py
+│
+├── core/
+│   ├── auth.py
+│   ├── database.py
+│   ├── deps.py
+│   ├── security.py
+│   └── settings.py
+│
+├── models/
+│   ├── __all_models__.py
+│   ├── comercializacao_model.py
+│   ├── exportacao_model.py
+│   ├── importacao_model.py
+│   ├── processamento_model.py
+│   ├── producao_model.py
+│   └── user_model.py
+│
+├── process_data/
+│   ├── comercializacao_clear.py
+│   ├── exportacao_clear.py
+│   ├── importacao_clear.py
+│   ├── processamento_clear.py
+│   ├── producao_clear.py
+│   ├── web_scraping.py
+│   ├── load_all.py
+│   └── teste_scraping/
+│
+├── schemas/
+│   ├── comercializacao_schema.py
+│   ├── exportacao_schema.py
+│   ├── importacao_schema.py
+│   ├── processamento_schema.py
+│   ├── producao_schema.py
+│   └── user_schema.py
+│
+├── create_tables.py
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+### 🔍 Organização por responsabilidades
+
+- **api/**: Define os endpoints REST e o roteamento geral da API.
+- **core/**: Contém configurações centrais, autenticação, dependências e segurança.
+- **models/**: Define os modelos ORM (SQLAlchemy) correspondentes às tabelas no banco de dados.
+- **schemas/**: Schemas Pydantic usados para validação e serialização de dados.
+- **process_data/**: Scripts responsáveis por limpar, transformar e carregar os dados.
+- **data_scraping/**: Pasta que armazenda os dados que foram extraídos via selenium e beatifulsoap .
+- **main.py**: Ponto de entrada da aplicação FastAPI e também pela criaçao e persitencia das tabelas no banco de dados.
+- **requirements.txt**: Lista de dependências do projeto.
+  
 ---
 
 ## 🤖 Preparação para Machine Learning
@@ -71,7 +141,6 @@ A estrutura foi pensada para garantir:
 
 ---
 
-  
   
 
 
