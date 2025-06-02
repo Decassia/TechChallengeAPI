@@ -1,5 +1,6 @@
 Tech Challenge FASE 01 - API: Vitivinicultura da Embrapa - Curso Pós Tech - Machine Learning Engineering
 
 Arquitetura
-![image](https://github.com/user-attachments/assets/c15e215e-adc2-4cc2-bbfb-b5b7582f8579)
+<img width="1282" alt="image" src="https://github.com/user-attachments/assets/375051f5-47ff-47b6-9b15-8132b9d1fa7a" />
+
 
