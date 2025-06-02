@@ -6,8 +6,8 @@ from api.v1.endpoints import user, producao, processamento, comercializacao, imp
 
 api_router = APIRouter()
 
-@api_router.get("/", tags=["Bem vindo"])
-def read_root():
+@app_router.get("/")
+async def def_root():
     return {"mensagem": "Bem Vindo"}
    
 api_router.include_router(
