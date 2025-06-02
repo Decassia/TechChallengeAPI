@@ -125,7 +125,8 @@ VineEmprabaAPI/
 - **schemas/**: Schemas Pydantic usados para validação e serialização de dados.
 - **process_data/**: Scripts responsáveis por limpar, transformar e carregar os dados.
 - **data_scraping/**: Pasta que armazenda os dados que foram extraídos via selenium e beatifulsoap .
-- **main.py**: Ponto de entrada da aplicação FastAPI e também pela criaçao e persitencia das tabelas no banco de dados.
+- **main.py**: Ponto de entrada da aplicação FastAPI.
+- **create_table.py**: Script resposável pela criaçao e persitencia das tabelas no banco de dados.
 - **requirements.txt**: Lista de dependências do projeto.
   
 ---
@@ -214,7 +215,7 @@ A API oferece múltiplos endpoints organizados por módulos, todos protegidos po
 |--------|-------------------------------------|------------------------------|
 | GET    | `/`                                 | Retorna todos os dados       |
 | GET    | `/get_processamento_ano_min_max`    | Retorna o menor e maior ano  |
-| GET    | `/get_processamentoby_ano`          | Processamento agrupada por ano|
+| GET    | `/get_processamento_by_ano`          | Processamento agrupada por ano|
 
 ℹ️ **Rotas de importação, exportação e comercialização seguem estrutura semelhante.**
 
@@ -252,6 +253,8 @@ A API oferece múltiplos endpoints organizados por módulos, todos protegidos po
 ### 📘 Swagger UI
 Acesse a [documentação interativa Swagger](https://techchallengeapi.onrender.com/docs) para testar cada rota diretamente no navegador.  
 Use o botão **"Authorize"** para inserir o token JWT.
+<img width="1137" alt="image" src="https://github.com/user-attachments/assets/3fd466c9-5591-4dc4-8a13-c90c553fb963" />
+
 
 ### 🧰 Exemplo de Login (via `curl`)
 ```bash
