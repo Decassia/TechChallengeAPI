@@ -156,8 +156,8 @@ O projeto conta com um **frontend desenvolvido em Streamlit**, que permite:
 
 ### Exemplo da interface:
 
-![Dashboard de Importação](<img width="1621" alt="image" src="https://github.com/user-attachments/assets/dd02279f-1adb-4146-9227-ceef4f411b4e" />
-)
+<img width="1621" alt="image" src="https://github.com/user-attachments/assets/dd02279f-1adb-4146-9227-ceef4f411b4e" />
+
 
 ## 📈 Análise Exploratória dos Dados (EDA)
 
@@ -173,7 +173,7 @@ A EDA teve como objetivos principais:
 
 ### Exemplo de visualização da EDA:
 
-![Gráfico de Importação - Quantidade por Ano](<img width="1621" alt="image" src="https://github.com/user-attachments/assets/a7f1e7ef-bd91-4c06-9b7d-a7372acc4b34" />)
+<img width="1621" alt="image" src="https://github.com/user-attachments/assets/a7f1e7ef-bd91-4c06-9b7d-a7372acc4b34" />
 
 Essas análises permitiram decisões fundamentadas sobre:
 - Quais colunas manter e transformar
@@ -192,7 +192,7 @@ Antes da construção dos dashboards interativos e da preparação para Machine 
 
 ### Exemplo de gráfico gerado durante a EDA:
 
-<img width="1621" alt="image" src="https://github.com/user-attachments/assets/c059e397-bf89-4c44-a365-efeac74e60f6" />)
+<img width="1621" alt="image" src="https://github.com/user-attachments/assets/c059e397-bf89-4c44-a365-efeac74e60f6" />
 
 
 Esses insights orientaram:
@@ -229,6 +229,7 @@ A API oferece múltiplos endpoints organizados por módulos, todos protegidos po
 |--------|-------------------------------------|------------------------------|
 | GET    | `/`                                 | Retorna todos os dados       |
 | GET    | `/get_processamento_ano_min_max`    | Retorna o menor e maior ano  |
+| GET    | `/get_processamentoby_ano`          | Processamento agrupada por ano|
 
 ℹ️ **Rotas de importação, exportação e comercialização seguem estrutura semelhante.**
 
