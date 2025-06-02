@@ -9,6 +9,7 @@ Você foi contratado para uma consultoria e seu trabalho envolve analisar os dad
   - Comercialização;
   - Importação;
   - Exportação.
+    
 A API vai servir para alimentar uma base de dados que futuramente será usada para um modelo de Machine Learning.
 
 Objetivos do projeto
@@ -38,7 +39,7 @@ A seguir, apresentamos a arquitetura completa do sistema desenvolvido:
 
 1. **Extração de Dados – Web Scraping**  
    - Utiliza **Selenium** e **BeautifulSoup** para extrair dados de páginas HTML com conteúdo dinâmico.
-   - Scripts Python acessam periodicamente as abas de Produção, Processamento, Comercialização, Importação e Exportação.
+   - Devido a instabilidade do site da viniviticultura, o Script Python acessa os dados as abas de Produção, Processamento, Comercialização, Importação e Exportação e faz o download dos arquivos CSV para que estes possam ser tratados e limpos antes de fazer a persistencia no banco de dados. 
 
 2. **Limpeza e Processamento – Pandas**  
    - Os dados brutos são transformados com `pandas`, eliminando ruídos como rodapés, cabeçalhos duplicados, e valores nulos.
