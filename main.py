@@ -20,7 +20,9 @@ app.add_middleware(
 )
 
 
-
+@app_router.get("/")
+async def def_root():
+    return {"mensagem": "Bem Vindo"}
 
 
 if __name__ == '__main__':
