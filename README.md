@@ -94,7 +94,7 @@ TechChallengeAPI/
 │   ├── producao_model.py
 │   └── user_model.py
 │
-├── process_data/
+├── data_process/
 │   ├── comercializacao_clear.py
 │   ├── exportacao_clear.py
 │   ├── importacao_clear.py
