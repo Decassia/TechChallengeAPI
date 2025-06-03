@@ -124,7 +124,7 @@ TechChallengeAPI/
 - **core/**: Contém configurações centrais, autenticação, dependências e segurança.
 - **models/**: Define os modelos ORM (SQLAlchemy) correspondentes às tabelas no banco de dados.
 - **schemas/**: Schemas Pydantic usados para validação e serialização de dados.
-- **process_data/**: Scripts responsáveis por limpar, transformar e carregar os dados.
+- **data_process/**: Scripts responsáveis por limpar, transformar e carregar os dados.
 - **data_scraping/**: Pasta que armazenda os dados que foram extraídos via selenium e beatifulsoap .
 - **main.py**: Ponto de entrada da aplicação FastAPI.
 - **create_table.py**: Script resposável pela criação e persistência das tabelas no banco de dados.
