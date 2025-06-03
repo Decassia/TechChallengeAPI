@@ -158,6 +158,8 @@ O projeto conta com um **frontend desenvolvido em Streamlit**, que permite:
 - Exportação dos dados filtrados em CSV, Excel ou JSON
 
 ### Exemplo da interface:
+[API-streamlit](https://techchallenge1app-fuougvtcgqq7smytfmdygw.streamlit.app) 
+
 
 <img width="1659" alt="image" src="https://github.com/user-attachments/assets/bd4c9d30-c1be-48bf-a87a-97bab2d99475" />
 
