@@ -165,13 +165,18 @@ O projeto conta com um **frontend desenvolvido em Streamlit**, que permite:
 
 Antes de alimentar os dashboards e modelos de machine learning, foi realizada uma **Análise Exploratória de Dados (EDA)**, utilizando bibliotecas como `pandas`, `matplotlib` e `plotly`.
 
-A EDA teve como objetivos principais:
+A EDA em sua essencia como objetivos principais:
 
 - Verificar **distribuições temporais** (ex: volume de importação por ano)
 - Identificar **outliers** e possíveis inconsistências
 - Analisar **tendências por tipo de produto e país**
 - Medir **ausência de dados** (valores nulos) e corrigir colunas incompletas
 - Preparar os dados com agregações e filtros otimizados para os dashboards
+
+No caso do nosso projeto, os insights gerados orientaram:
+- A escolha de filtros por **ano**, **produto** e **país**;
+- A separação das abas no dashboard;
+- A modelagem dos dados para futura análise preditiva e agrupamentos.
 
 ### Exemplo de visualização da EDA:
 
@@ -182,10 +187,7 @@ A EDA teve como objetivos principais:
 <img width="1621" alt="image" src="https://github.com/user-attachments/assets/c059e397-bf89-4c44-a365-efeac74e60f6" />
 
 
-Esses insights orientaram:
-- A escolha de filtros por **ano**, **produto** e **país**;
-- A separação das abas no dashboard;
-- A modelagem dos dados para futura análise preditiva e agrupamentos.
+
 
 ---
 
