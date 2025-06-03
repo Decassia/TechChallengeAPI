@@ -31,7 +31,8 @@ Este projeto tem como objetivo criar uma **API pública RESTful**, com autentica
 
 A seguir, apresentamos a arquitetura completa do sistema desenvolvido:
 
-[Arquitetura do Projeto] <img width="1223" alt="image" src="https://github.com/user-attachments/assets/8a22867c-a3e3-4388-b013-af7bee1a8a31" />
+Arquitetura do Projeto 
+<img width="1223" alt="image" src="https://github.com/user-attachments/assets/8a22867c-a3e3-4388-b013-af7bee1a8a31" />
 
 
 ### 🔄 Etapas da Arquitetura:
@@ -158,14 +159,14 @@ O projeto conta com um **frontend desenvolvido em Streamlit**, que permite:
 
 ### Exemplo da interface:
 
-<img width="1621" alt="image" src="https://github.com/user-attachments/assets/dd02279f-1adb-4146-9227-ceef4f411b4e" />
+<img width="1659" alt="image" src="https://github.com/user-attachments/assets/bd4c9d30-c1be-48bf-a87a-97bab2d99475" />
 
 
 ## 📈 Análise Exploratória dos Dados (EDA)
 
 Antes de alimentar os dashboards e modelos de machine learning, foi realizada uma **Análise Exploratória de Dados (EDA)**, utilizando bibliotecas como `pandas`, `matplotlib` e `plotly`.
 
-A EDA em sua essencia como objetivos principais:
+A EDA em sua essência tem como objetivos principais:
 
 - Verificar **distribuições temporais** (ex: volume de importação por ano)
 - Identificar **outliers** e possíveis inconsistências
@@ -180,11 +181,13 @@ No caso do nosso projeto, os insights gerados orientaram:
 
 ### Exemplo de visualização da EDA:
 
-<img width="1621" alt="image" src="https://github.com/user-attachments/assets/a7f1e7ef-bd91-4c06-9b7d-a7372acc4b34" />
+
+<img width="1659" alt="image" src="https://github.com/user-attachments/assets/2323f501-aad5-41c7-808c-e8ee53504ff9" />
 
 ---
 
-<img width="1621" alt="image" src="https://github.com/user-attachments/assets/c059e397-bf89-4c44-a365-efeac74e60f6" />
+<img width="1659" alt="image" src="https://github.com/user-attachments/assets/aaa4a32b-558c-4ef5-8015-299b21227e25" />
+
 
 
 
