@@ -66,7 +66,7 @@ A seguir, apresentamos a arquitetura completa do sistema desenvolvido:
 A estrutura do projeto foi organizada para garantir **modularidade**, **clareza** e **escalabilidade**:
 
 ```
-VineEmprabaAPI/
+TechChallengeAPI/
 │
 ├── api/
 │   └── v1/
