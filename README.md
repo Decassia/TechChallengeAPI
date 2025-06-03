@@ -14,7 +14,6 @@ A API vai servir para alimentar uma base de dados que futuramente será usada pa
 
 Objetivos do projeto
 
-Criar uma Rest API em Python que faça a consulta no site da Embrapa.
   -  Criar uma Rest API em Python que faça a consulta no site da Embrapa.
   -  Sua API deve estar documentada.
   - É recomendável (não obrigatório) a escolha de um método deautenticação (JWT, por exemplo).
